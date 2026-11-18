@@ -9,3 +9,4 @@ const magicHero=document.querySelector('.hero'),sparkField=document.querySelecto
 for(let i=0;i<30;i++){const spark=document.createElement('span');spark.className='gold-spark';spark.style.cssText='--x:'+((i*37+11)%94+3)+'%;--y:'+((i*23+9)%68+12)+'%;--size:'+(i%3+1.5)+'px;--duration:'+(8+i%7)+'s;--delay:-'+(i*1.37)+'s;--drift:'+((i%2?1:-1)*(12+i%31))+'px';sparkField.append(spark)}
 let heroOnscreen=true;function updateMagicPause(){magicHero.classList.toggle('magic-paused',!heroOnscreen||document.hidden)}
 new IntersectionObserver(entries=>{heroOnscreen=entries[0].isIntersecting;updateMagicPause()}).observe(magicHero);document.addEventListener('visibilitychange',updateMagicPause);updateMagicPause();
+
